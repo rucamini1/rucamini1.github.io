@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제칠일안식일예수재림교 송도교회</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="송도국제도시에 위치한 제칠일안식일예수재림교 송도교회입니다.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components/navbar.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/sections.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { overflow-x: hidden; }
+        .history-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 80px;
+            margin-bottom: 150px;
+        }
+        .history-item:nth-child(even) {
+            direction: rtl;
+        }
+        .history-item:nth-child(even) .history-text {
+            direction: ltr;
+        }
+        .history-img {
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-base);
+        }
+        .history-img:hover {
+            transform: scale(1.02);
+        }
+        .reveal.active {
+            animation: fadeInUp 1s ease forwards;
+        }
+        @media (max-width: 768px) {
+            .history-item {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin-bottom: 80px;
+            }
+            .history-item:nth-child(even) {
+                direction: ltr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="container nav-container">
+            <div class="logo-wrapper" style="display: flex; align-items: center; gap: 0px;">
+                <img src="assets/images/adventist-symbol--black.png" alt="SDA Logo" style="height: 63px; width: auto; filter: sepia(1) saturate(5) hue-rotate(10deg); transform: translateY(-3px);">
+                <div class="logo-text" style="font-family: 'Gowun Batang', serif; font-size: 2rem; color: #c5a028;">송도교회</div>
+            </div>
+            <div class="mobile-toggle">
+                <i data-lucide="menu"></i>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#">처음으로</a></li>
+                <li><a href="#history">교회 발자취</a></li>
+                <li><a href="#services">예배안내</a></li>
+                <li><a href="#sermons">말씀/설교</a></li>
+                <li><a href="#news">교회소식</a></li>
+                <li><a href="#offering">온라인 헌금</a></li>
+                <li><a href="#contact">오시는 길</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="portal-hero">
+        <img src="assets/images/churchlogo2.jpg" alt="Church Logo Background" class="hero-bg-img">
+
+        <div class="portal-hero-content">
+            <div class="container reveal">
+                <h2 class="animate-title" style="font-family: 'Gowun Batang', serif; letter-spacing: -2px; font-weight: 700; color: #c5a028;">송도교회</h2>
+                <p class="animate-subtitle">새로운 신자가 적응할 수 있는 교회, 잃은 양들이 돌아올 수 있는 교회</p>
+                <div class="hero-buttons">
+                    <a href="#sermons" class="btn btn-primary">최신 설교 듣기</a>
+                    <a href="#history" class="btn btn-outline" style="margin-left: 15px;">교회 발자취</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Church History Section (NEW) -->
+    <section class="content-section" id="history" style="background: var(--color-bg);">
+        <div class="container">
+            <div class="text-center reveal" style="margin-bottom: 100px;">
+                <h2 class="text-gradient" style="font-size: 3.5rem; font-weight: 800; margin-bottom: 16px;">송도교회 발자취</h2>
+                <p class="text-muted" style="font-size: 1.2rem;">하나님의 인도하심 속에 이뤄낸 헌신과 기적의 순간들입니다</p>
+            </div>
+
+            <!-- History Item 1 -->
+            <div class="history-item reveal">
+                <div class="history-img gr-hover">
+                    <img src="assets/images/001.JPG" alt="2000만원의 기적" style="width: 100%; height: 450px; object-fit: cover;">
+                </div>
+                <div class="history-text">
+                    <h3 style="font-size: 2.5rem; color: var(--color-primary); margin-bottom: 24px;">2000만원으로 개척교회 도전</h3>
+                    <p style="font-size: 1.25rem; line-height: 1.8; color: var(--color-text-main);">
+                        2013년 5월에 송도신도시에 보증금 1000만원과 직접 청년들과 목회자들의 헌신으로 약 800만원의 셀프 인테리어로 오른쪽 사진의 교회가 완성되었습니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- History Item 2 -->
+            <div class="history-item reveal">
+                <div class="history-img gr-hover">
+                    <img src="assets/images/bt.JPG" alt="첫 침례식" style="width: 100%; height: 450px; object-fit: cover;">
+                </div>
+                <div class="history-text">
+                    <h3 style="font-size: 2.5rem; color: var(--color-primary); margin-bottom: 24px;">기적의 첫 16명의 침례식</h3>
+                    <p style="font-size: 1.25rem; line-height: 1.8; color: var(--color-text-main);">
+                        2013년 10월 성경공부와 전도회를 통하여 16명의 소중한 영혼들이 주님의 자녀로 거듭난 첫번째 개척교회가 되었습니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- History Item 3 -->
+            <div class="history-item reveal">
+                <div class="history-img gr-hover">
+                    <img src="assets/images/002.PNG" alt="인터넷 선교" style="width: 100%; height: 450px; object-fit: cover;">
+                </div>
+                <div class="history-text">
+                    <h3 style="font-size: 2.5rem; color: var(--color-primary); margin-bottom: 24px;">인터넷 선교 교회를 거듭남</h3>
+                    <p style="font-size: 1.25rem; line-height: 1.8; color: var(--color-text-main);">
+                        코로나의 위기속에서 해외선교인터뷰와 실시간 방송예배와 다양한 유튜브 프로그램으로 인터넷 방송 교회로 전 세계에 복음을 전파하고 있습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube / QR Connect -->
+    <section class="container reveal" style="margin-top: -50px; position: relative; z-index: 10;">
+        <div class="qr-section glass" style="background: rgba(255,255,255,0.9);">
+            <div style="flex:1;">
+                <h3 class="text-gradient" style="font-size: 2.5rem; margin-bottom: 16px; font-weight:700;">SONGDO YouTube</h3>
+                <p class="text-muted" style="margin-bottom: 24px; font-size: 1.1rem;">
+                    실시간 예배 방송과 지난 설교 말씀을 유튜브 채널에서 확인하세요.<br>
+                    스마트폰으로 우측의 QR코드를 스캔하시면 바로 연결됩니다.
+                </p>
+                <a href="#" class="btn btn-primary">채널 바로가기 <i data-lucide="youtube" style="margin-left:8px; width:18px;"></i></a>
+            </div>
+            <div style="text-align: center;">
+                <div class="glass" style="padding: 20px; border-radius: 20px; background: #fff;">
+                    <img src="assets/images/logo_qr.png" alt="YouTube QR" style="height: 180px; width: auto;">
+                </div>
+                <p style="font-size:0.8rem; color:var(--color-primary); margin-top:10px; font-weight: 700; letter-spacing: 2px;">SCAN TO CONNECT</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content: Sermons -->
+    <section class="content-section" id="sermons">
+        <div class="container">
+            <div class="grid-header reveal">
+                <h3 class="grid-title" style="color: var(--color-accent); font-size: 2.5rem;">말씀/설교 유튜브</h3>
+                <div class="category-tabs">
+                    <button class="tab-btn active" data-filter="all">전체</button>
+                    <button class="tab-btn" data-filter="worship">안식일설교</button>
+                    <button class="tab-btn" data-filter="bible-time">교과방송</button>
+                    <button class="tab-btn" data-filter="friday">금요예배</button>
+                    <button class="tab-btn" data-filter="tuesday">화요예배</button>
+                </div>
+            </div>
+
+            <div class="grid-container" id="video-grid">
+                <!-- 교과방송 (Bible Time) -->
+                <div class="content-card video-card reveal" data-category="bible-time" style="background: #fff; box-shadow: var(--shadow-md);">
+                    <div class="card-thumb" onclick="openVideoModal('https://www.youtube.com/embed/F7u-06m0axM?list=PLcbml5E92Y2LzTK4S4DDhVWS4zbPDDz9G')">
+                        <i data-lucide="play-circle" size="64" color="#d4af37"></i>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title" style="color: #222;">교과방송 - 온라인 성경 공부</h4>
+                        <div class="card-meta">최신 영상 | 교과방송</div>
+                    </div>
+                </div>
+
+                <!-- 안식일설교 -->
+                <div class="content-card video-card reveal" data-category="worship" style="background: #fff; box-shadow: var(--shadow-md);">
+                    <div class="card-thumb" onclick="openVideoModal('https://www.youtube.com/embed/Wh15ZEAGQwM?list=PLcbml5E92Y2KuvFkttZwGIEuc-fggZkHD')">
+                        <i data-lucide="play-circle" size="64" color="#d4af37"></i>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title" style="color: #222;">안식일설교 - 주말 영적 양식</h4>
+                        <div class="card-meta">최신 영상 | 안식일설교</div>
+                    </div>
+                </div>
+
+                <!-- 금요예배 -->
+                <div class="content-card video-card reveal" data-category="friday" style="background: #fff; box-shadow: var(--shadow-md);">
+                    <div class="card-thumb" onclick="openVideoModal('https://www.youtube.com/embed/sic-jqaZzNA?list=PLcbml5E92Y2IoSuAavgerKq44MVj5pEbc')">
+                        <i data-lucide="play-circle" size="64" color="#d4af37"></i>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title" style="color: #222;">금요예배 - 한 주를 마무리하는 기도</h4>
+                        <div class="card-meta">최신 영상 | 금요예배</div>
+                    </div>
+                </div>
+
+                <!-- 화요예배 -->
+                <div class="content-card video-card reveal" data-category="tuesday" style="background: #fff; box-shadow: var(--shadow-md);">
+                    <div class="card-thumb" onclick="openVideoModal('https://www.youtube.com/embed/te9X3SRsRQ4?list=PLcbml5E92Y2LxP4RtNYnSiVD6YEMOtguL')">
+                        <i data-lucide="play-circle" size="64" color="#d4af37"></i>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title" style="color: #222;">화요예배 - 주중 말씀 탐구</h4>
+                        <div class="card-meta">최신 영상 | 화요예배</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="content-section" id="news" style="background: var(--color-bg-secondary);">
+        <div class="container">
+            <div class="grid-header reveal">
+                <h3 class="grid-title" style="color: var(--color-accent); font-size: 2.5rem;">교회 소식</h3>
+                <a href="board.html" class="text-muted" style="font-size: 1rem; font-weight: 600;">전체보기 +</a>
+            </div>
+            <div class="reveal" style="background: #fff; padding: 50px; border-radius: 30px; box-shadow: var(--shadow-sm);">
+                <ul style="display: flex; flex-direction: column; gap: 30px;">
+                    <li class="news-item" style="display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 25px; transition: var(--transition-base);">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <span style="background: #f0f0f0; color: #666; font-size: 0.8rem; font-weight: 700; padding: 4px 10px; border-radius: 4px;">공지</span>
+                            <a href="board.html" style="font-weight: 600; font-size: 1.2rem; color: #333;">2026년도 교회 임원 선거 결과 공고</a>
+                        </div>
+                        <span class="text-muted">2026.04.12</span>
+                    </li>
+                    <li class="news-item" style="display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 25px; transition: var(--transition-base);">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <span style="background: #fdf6e7; color: var(--color-primary); font-size: 0.8rem; font-weight: 700; padding: 4px 10px; border-radius: 4px;">행사</span>
+                            <a href="board.html" style="font-weight: 600; font-size: 1.2rem; color: #333;">송년 음악회 안내 및 초대</a>
+                        </div>
+                        <span class="text-muted">2026.04.05</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Worship Info -->
+    <section class="content-section" id="services">
+        <div class="container text-center reveal">
+            <h3 class="grid-title" style="margin-bottom: 60px; color: var(--color-accent); font-size: 2.5rem;">정규 예배 안내</h3>
+            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                <div class="glass" style="padding: 40px; border-radius: 25px; min-width: 250px; background: #fff;">
+                    <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 15px; font-weight: 700; letter-spacing: 1px;">화요예배</p>
+                    <p style="font-size: 1.5rem; font-weight: 800; color: #222;">화요일 유튜브 예배</p>
+                </div>
+
+                <div class="glass" style="padding: 40px; border-radius: 25px; min-width: 250px; background: #fff; border: 2px solid var(--color-primary);">
+                    <p style="color: var(--color-primary); font-size: 0.9rem; margin-bottom: 15px; font-weight: 700; letter-spacing: 1px;">안식일 예배</p>
+                    <p style="font-size: 1.5rem; font-weight: 800; color: #222;">토요일 오전 11:00</p>
+                </div>
+                <div class="glass" style="padding: 40px; border-radius: 25px; min-width: 250px; background: #fff;">
+                    <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 15px; font-weight: 700; letter-spacing: 1px;">금요예배</p>
+                    <p style="font-size: 1.5rem; font-weight: 800; color: #222;">금요일 오후 7:15</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Offering Section -->
+    <section class="content-section" id="offering" style="background: var(--color-bg-secondary);">
+        <div class="container">
+            <div class="text-center reveal" style="margin-bottom: 60px;">
+                <h2 class="text-gradient" style="font-size: 3rem; font-weight: 800; margin-bottom: 16px;">온라인 헌금 안내</h2>
+                <p class="text-muted" style="font-size: 1.1rem;">하나님께서 즐겨 내는 자를 사랑하시느니라 (고후 9:7)</p>
+            </div>
+
+            <div class="offering-wrapper reveal">
+                <!-- Account Card -->
+                <div class="offering-card glass">
+                    <div class="bank-info">
+                        <img src="assets/images/Shinhan_Bank_logo.png" alt="Shinhan Bank" style="height: 56px; margin-bottom: 10px;">
+                        <h4 style="font-size: 0.9rem; color: var(--color-primary); font-weight: 700; letter-spacing: 1px; margin-bottom: 10px;">SHINHAN BANK</h4>
+                        <p class="account-number" id="accountNum">100-030-416442</p>
+                        <p style="font-weight: 600; font-size: 1.1rem; color: #222;">제칠일안식일예수재림교 송도교회</p>
+                    </div>
+                    <div class="offering-actions">
+                        <button class="btn btn-primary" onclick="copyAccount()" id="copyBtn" style="flex:1;">
+                            계좌번호 복사 <i data-lucide="copy" style="margin-left: 8px; width: 18px;"></i>
+                        </button>
+                        <button class="btn btn-outline" onclick="openToss()" style="flex:1; border-color: #0064ff; color: #0064ff;">
+                            토스로 송금 <i data-lucide="external-link" style="margin-left: 8px; width: 18px;"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Instruction Card -->
+                <div class="instruction-card glass">
+                    <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 24px; color: #222;">입금자 성명 기입 안내</h4>
+                    <ul class="memo-list">
+                        <li><span>십일조</span><strong>홍길동 십일</strong></li>
+                        <li><span>월정헌금</span><strong>홍길동 월정</strong></li>
+                        <li><span>감사헌금</span><strong>홍길동 감사</strong></li>
+                        <li><span>선교헌금</span><strong>홍길동 선교</strong></li>
+                        <li><span>도르가</span><strong>홍길동 도르가</strong></li>
+                        <li><span>방송선교</span><strong>홍길동 방송</strong></li>
+                    </ul>
+                    <p style="font-size: 0.9rem; margin-top: 24px; color: var(--color-text-muted);">
+                        * 성함 뒤에 헌금 종류를 꼭 적어주세요.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="content-section" id="contact" style="background: #f8f9fa; padding-top: 120px; border-top: 1px solid #eee;">
+        <div class="container reveal">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 80px; padding-bottom: 80px; border-bottom: 1px solid #eee;">
+                <div>
+                    <!-- Official Denomination Logo (English) - Size and Spacing Adjusted -->
+                    <img src="https://cdn.adventist.org/adventist-logo/2/en/adventist-en--black.png" alt="Seventh-day Adventist Church Official Logo" style="width: 320px; height: auto; margin-bottom: 5px; opacity: 0.85; display: block;">
+                    <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 15px; letter-spacing: -2px;">SONGDO CHURCH</h2>
+                    <p class="text-muted" style="font-size: 1rem; line-height: 1.8;">제칠일안식일예수재림교 송도교회<br>하나님의 사랑이 송도국제도시에 가득하길 소망합니다.</p>
+                </div>
+
+
+                <div>
+                    <h4 style="margin-bottom: 25px; font-size: 1rem; color: var(--color-primary); letter-spacing: 2px; font-weight: 800;">LOCATION</h4>
+                    <p style="margin-bottom: 10px; font-size: 1.1rem; font-weight: 500;">인천광역시 연수구 송도동 30-3<br>센트로드 상가동 D313호 송도교회</p>
+                    <p class="text-muted" style="font-size: 0.95rem; margin-bottom: 20px;">
+                        <i data-lucide="map-pin" style="width: 16px; margin-right: 5px;"></i> 국제업무지구역 1번출구<br>
+                        <i data-lucide="parking-circle" style="width: 16px; margin-right: 5px;"></i> 지하주차장 완비
+                    </p>
+                    
+                    <div style="display: flex; gap: 10px; margin-bottom: 25px;">
+                        <a href="https://map.naver.com/p/search/송도교회/place/36802609?placePath=/home?from=map&fromPanelNum=2&timestamp=202604142146&locale=ko&svcName=map_pcv5&searchText=송도교회&c=15.00,0,0,0,dh" target="_blank" class="btn btn-outline" style="padding: 10px 15px; font-size: 0.85rem; border-color: #03c75a; color: #03c75a;">네이버 지도</a>
+                        <a href="https://www.google.com/maps?ll=37.39823,126.630764&z=16&t=m&hl=ko-KR&gl=US&mapclient=embed&cid=9334651122365706555" target="_blank" class="btn btn-outline" style="padding: 10px 15px; font-size: 0.85rem; border-color: #4285f4; color: #4285f4;">구글 지도</a>
+                    </div>
+
+                    <div style="position: relative; border-radius: 15px; overflow: hidden; background: #eee;">
+                        <a href="https://www.youtube.com/watch?v=FKyg1mPoi9w" target="_blank" style="display: block;">
+                            <img src="https://img.youtube.com/vi/FKyg1mPoi9w/mqdefault.jpg" alt="교회 오시는 길 영상" style="width: 100%; display: block; filter: brightness(0.8);">
+                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; text-align: center;">
+                                <i data-lucide="play-circle" style="width: 40px; height: 40px;"></i>
+                                <p style="font-size: 0.8rem; font-weight: 600; margin-top: 5px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">교회 오시는 길 영상</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 style="margin-bottom: 25px; font-size: 1rem; color: var(--color-primary); letter-spacing: 2px; font-weight: 800;">CONNECT</h4>
+                    <a href="https://www.youtube.com/@bibletime8232" target="_blank" class="text-muted" style="display: block; margin-bottom: 15px; font-size: 1.1rem;">YouTube Channel</a>
+                    <a href="#" class="text-muted" style="display: block; font-size: 1.1rem;">Contact Us</a>
+                </div>
+            </div>
+            <div style="padding-top: 50px; text-align: center; color: #aaa; font-size: 0.9rem;">
+                <p>&copy; 2026 SONGDO SDA CHURCH. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <div class="modal-content glass" style="border-radius: 30px; border: none; box-shadow: var(--shadow-lg);">
+            <span class="close-modal" style="top: -50px; font-size: 40px;">&times;</span>
+            <div class="video-wrapper">
+                <iframe id="videoFrame" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

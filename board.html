@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교회 소식 상세 | 송도교회</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components/navbar.css">
+    <link rel="stylesheet" href="css/components/sections.css">
+    <link rel="stylesheet" href="css/components/board.css">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <!-- Global Linen Texture (managed by main.css) -->
+
+    <!-- Main Navigation -->
+    <nav class="main-nav scrolled"> <!-- Scrolled state by default for visibility -->
+        <div class="container nav-container">
+            <div class="logo-wrapper" style="display: flex; align-items: center; gap: 0px;">
+                <img src="assets/images/adventist-symbol--black.png" alt="SDA Logo" style="height: 63px; width: auto; filter: sepia(1) saturate(5) hue-rotate(10deg); transform: translateY(-3px);">
+                <div class="logo-text" style="font-family: 'Gowun Batang', serif; font-size: 2rem; color: #c5a028;">송도교회</div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">처음으로</a></li>
+                <li><a href="index.html#history">교회 발자취</a></li>
+                <li><a href="index.html#services">예배안내</a></li>
+                <li><a href="index.html#sermons">말씀/설교</a></li>
+                <li><a href="index.html#news">교회소식</a></li>
+                <li><a href="index.html#offering">온라인 헌금</a></li>
+                <li><a href="index.html#contact">오시는 길</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Board Detail Content -->
+    <main class="board-container">
+        <div class="container">
+            <article class="board-detail reveal active">
+                <header class="board-header">
+                    <span class="board-tag">공지사항</span>
+                    <h1 class="board-title">2026년도 교회 임원 선거 결과 공고</h1>
+                    <div class="board-meta">
+                        <span><i data-lucide="calendar" style="width:16px; margin-right:5px;"></i> 2026.04.12</span>
+                        <span><i data-lucide="user" style="width:16px; margin-right:5px;"></i> 송도교회 사무처</span>
+                        <span><i data-lucide="eye" style="width:16px; margin-right:5px;"></i> 조회수 128</span>
+                    </div>
+                </header>
+
+                <div class="board-content">
+                    <p>안녕하십니까, 송도교회 성도 여러분.</p>
+                    <p>기도와 헌신 속에 진행된 2026년도 교회 임원 선거 결과를 다음과 같이 공고합니다. 새롭게 선출된 임원분들이 주님의 사역을 기쁨으로 감당할 수 있도록 성도님들의 많은 기도 부탁드립니다.</p>
+                    
+                    <img src="assets/images/songdochurch.JPG" alt="Featured Image" style="width:100%; border-radius: 20px; object-fit: cover; height: 400px; margin: 40px 0;">
+
+                    <h3 style="margin-bottom: 20px; color: #111;">[선거 결과 요약]</h3>
+                    <ul style="margin-left: 20px; margin-bottom: 30px;">
+                        <li>수석장로: OOO 장로</li>
+                        <li>재무부장: OOO 집사</li>
+                        <li>선교부장: OOO 집사</li>
+                        <li>안교부장: OOO 집사</li>
+                    </ul>
+
+                    <p>임원 임명장 수여식은 다음 주 안식일 대예배 시간에 진행될 예정입니다. 감사합니다.</p>
+                </div>
+
+                <footer class="board-footer">
+                    <a href="index.html#news" class="btn btn-primary">목록으로 돌아가기</a>
+                </footer>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer Copy -->
+    <footer class="content-section" style="background: #f8f9fa; padding: 60px 0; border-top: 1px solid #eee;">
+        <div class="container text-center">
+            <p class="text-muted">&copy; 2026 SONGDO SDA CHURCH. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
