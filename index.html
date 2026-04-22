@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제칠일안식일예수재림교 송도교회</title>
+    <meta name="description" content="송도국제도시에 위치한 제칠일안식일예수재림교 송도교회입니다.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --gold: #c5a028;
+            --gold-light: #e8c84a;
+            --gold-dark: #9a7c1e;
+            --glass-bg: rgba(255, 255, 255, 0.12);
+            --glass-bg-strong: rgba(255, 255, 255, 0.22);
+            --glass-border: rgba(255, 255, 255, 0.28);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            --blur: blur(18px);
+            --blur-strong: blur(30px);
+            --text-light: rgba(255,255,255,0.92);
+            --text-muted: rgba(255,255,255,0.6);
+            --deep: #0a0e1a;
+            --nav-height: 80px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--deep);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* ── BACKGROUND ── */
+        .bg-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 20% 10%, rgba(197,160,40,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 80% 80%, rgba(30,60,120,0.35) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 70% at 60% 30%, rgba(80,130,200,0.12) 0%, transparent 55%),
+                linear-gradient(160deg, #0a0e1a 0%, #0d1730 40%, #0a1020 100%);
+        }
+        .bg-canvas::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* ── NAV (하얀 투명바) ── */
+        .main-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: var(--nav-height);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.4s ease;
+        }
+        .main-nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .logo-symbol {
+            height: 46px;
+            width: auto;
+        }
+        .logo-text {
+            font-family: 'Gowun Batang', serif;
+            font-size: 1.8rem;
+            color: var(--gold-dark);
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .nav-menu li a {
+            display: block;
+            padding: 8px 14px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #222;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .nav-menu li a:hover {
+            color: var(--gold-dark);
+            background: rgba(0,0,0,0.05);
+        }
+
+        /* ── Lang Dropdown ── */
+        .lang-dropdown { 
+            position: relative; 
+            padding-bottom: 25px; 
+            margin-bottom: -25px;
+        }
+        .lang-btn {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .lang-btn:hover { border-color: var(--gold); color: var(--gold); }
+        .lang-content {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            right: 0; 
+            top: calc(100% + 5px);
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 14px;
+            overflow: hidden;
+            min-width: 110px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease 0.4s, visibility 0.3s 0.4s, transform 0.3s ease 0.4s;
+        }
+        .lang-dropdown:hover .lang-content { 
+            visibility: visible; 
+            opacity: 1; 
+            transform: translateY(0);
+            transition: opacity 0.2s ease 0s, visibility 0.2s 0s, transform 0.2s ease 0s;
+        }
+        .lang-content a {
+            display: block;
+            padding: 14px 16px;
+            color: #444;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-align: center;
+            border-bottom: 1px solid #f5f5f5;
+            transition: all 0.2s;
+        }
+        .lang-content a:last-child { border-bottom: none; }
+        .lang-content a:hover { background: #fdf6e7; color: var(--gold-dark); }
+
+        /* Mobile toggle */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #222;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('assets/images/churchlogo2.jpg');
+            background-size: cover;
+            /* 정중앙 정렬 */
+            background-position: center center; 
+            /* 사진을 훨씬 밝고 선명하게 수정 */
+            filter: brightness(0.65) saturate(1.0); 
+            transform: scale(1.02);
+            transition: transform 8s ease;
+        }
+        .hero:hover .hero-bg { transform: scale(1.0); }
+        
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            /* 밝아진 사진에 맞춰 어두운 그림자(오버레이)도 대폭 걷어냄 */
+            background: linear-gradient(
+                to bottom,
+                rgba(10,14,26,0.1) 0%,
+                rgba(10,14,26,0.05) 40%,
+                rgba(10,14,26,0.4) 100%
+            );
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+            animation: heroIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        @keyframes heroIn {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding: 8px 20px;
+            background: rgba(0,0,0,0.3); /* 밝은 배경에서 글씨가 보이도록 검정 반투명 추가 */
+            border: 1px solid rgba(197,160,40,0.5);
+            border-radius: 30px;
+            backdrop-filter: blur(8px);
+        }
+        .hero h1 {
+            font-family: 'Gowun Batang', serif;
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 700;
+            color: white;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            /* 배경이 밝아진 만큼 글씨 그림자를 진하게 주어 가독성 확보 */
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+        }
+        .hero h1 span { color: var(--gold); }
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+            margin: 20px auto 40px;
+            max-width: 600px;
+            line-height: 1.7;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ── GLASS BUTTONS ── */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: #0a0e1a;
+            box-shadow: 0 4px 20px rgba(197,160,40,0.4);
+        }
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(197,160,40,0.6);
+        }
+        .btn-glass {
+            background: rgba(0,0,0,0.4);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(12px);
+        }
+        .btn-glass:hover {
+            background: rgba(0,0,0,0.6);
+            transform: translateY(-2px);
+        }
+
+        /* ── SCROLL INDICATOR ── */
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            animation: bounce 2s infinite;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(6px); }
+        }
+
+        /* ── SECTION BASE ── */
+        section { position: relative; z-index: 1; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        .section-pad { padding: 120px 0; }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            font-weight: 600;
+            line-height: 1.15;
+            color: white;
+            margin-bottom: 16px;
+        }
+        .section-sub {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* ── GLASS CARD ── */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: var(--glass-shadow);
+            transition: all 0.4s ease;
+        }
+        .glass-card:hover {
+            background: var(--glass-bg-strong);
+            border-color: rgba(197,160,40,0.35);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 50px rgba(0,0,0,0.35);
+        }
+
+        /* ── REVEAL ANIMATION ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── HISTORY SECTION ── */
+        .history-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+        .history-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .history-item:nth-child(even) .history-img { order: 2; }
+        .history-item:nth-child(even) .history-text { order: 1; }
+        .history-img {
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+        .history-img img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .history-img:hover img { transform: scale(1.04); }
+        .history-year {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .history-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .history-text p {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* ── YOUTUBE QR ── */
+        .qr-band {
+            margin: 0 40px;
+            border-radius: 28px;
+            padding: 60px 80px;
+            background: linear-gradient(135deg, rgba(197,160,40,0.15) 0%, rgba(197,160,40,0.05) 100%);
+            border: 1px solid rgba(197,160,40,0.3);
+            backdrop-filter: var(--blur);
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+        .qr-band h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--gold-light);
+            margin-bottom: 12px;
+        }
+        .qr-band p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 28px;
+        }
+        .qr-box {
+            flex-shrink: 0;
+            background: white;
+            border-radius: 20px;
+            padding: 18px;
+            box-shadow: 0 8px 30px rgba(197,160,40,0.25);
+        }
+        .qr-box img { height: 170px; width: auto; display: block; }
+        .qr-label {
+            text-align: center;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-top: 12px;
+        }
+
+        /* ── SERMONS ── */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+        .tab-btn {
+            padding: 9px 20px;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            background: var(--glass-bg);
+            color: rgba(255,255,255,0.65);
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s;
+            font-family: 'Noto Sans KR', sans-serif;
+            backdrop-filter: blur(8px);
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background: rgba(197,160,40,0.2);
+            border-color: rgba(197,160,40,0.5);
+            color: var(--gold-light);
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .video-card {
+            overflow: hidden;
+        }
+        .card-thumb {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-thumb::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            transition: background 0.3s;
+        }
+        .card-thumb:hover::after { background: rgba(0,0,0,0.15); }
+        .card-thumb i { position: relative; z-index: 2; color: var(--gold-light); filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5)); }
+        .card-body { padding: 20px 22px 24px; }
+        .card-category {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: white;
+            line-height: 1.4;
+        }
+
+        /* ── SERVICES ── */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .service-card {
+            padding: 40px 32px;
+            text-align: center;
+        }
+        .service-card.featured {
+            background: linear-gradient(135deg, rgba(197,160,40,0.2) 0%, rgba(197,160,40,0.08) 100%);
+            border-color: rgba(197,160,40,0.45);
+        }
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: rgba(197,160,40,0.15);
+            border: 1px solid rgba(197,160,40,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--gold);
+        }
+        .service-day {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .service-time {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        /* ── NEWS ── */
+        .news-list { display: flex; flex-direction: column; gap: 0; }
+        .news-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 28px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            transition: background 0.2s;
+            cursor: pointer;
+            gap: 20px;
+        }
+        .news-item:last-child { border-bottom: none; }
+        .news-item:hover { background: rgba(255,255,255,0.04); }
+        .news-left { display: flex; align-items: center; gap: 14px; }
+        .news-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+        }
+        .tag-notice { background: rgba(197,160,40,0.15); color: var(--gold-light); border: 1px solid rgba(197,160,40,0.25); }
+        .tag-event { background: rgba(80,150,255,0.12); color: #82b4ff; border: 1px solid rgba(80,150,255,0.25); }
+        .tag-info { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.12); }
+        .news-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.85);
+        }
+        .news-date { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
+
+        /* ── OFFERING ── */
+        .offering-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+        .offering-main { padding: 50px; }
+        .offering-main .bank-logo { height: 48px; margin-bottom: 20px; filter: brightness(10); opacity: 0.8; }
+        .account-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold-light);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        .account-name {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 32px;
+        }
+        .offering-btns { display: flex; gap: 12px; }
+        .memo-card { padding: 40px; }
+        .memo-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+        .memo-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .memo-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 16px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .memo-list li span { font-size: 0.88rem; color: var(--text-muted); }
+        .memo-list li strong { font-size: 0.9rem; color: rgba(255,255,255,0.85); font-family: monospace; }
+        .memo-note { font-size: 0.82rem; color: var(--text-muted); margin-top: 16px; }
+
+        /* ── FOOTER ── */
+        footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 80px 0 40px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 0.8fr;
+            gap: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 40px;
+        }
+        .footer-logo img { height: 36px; opacity: 0.6; filter: invert(1); margin-bottom: 8px; }
+        .footer-church-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: white;
+            margin-bottom: 12px;
+        }
+        .footer-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; }
+        .footer-section-title {
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        .footer-info { font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.9; margin-bottom: 16px; }
+        .map-btns { display: flex; gap: 10px; margin-bottom: 20px; }
+        .map-btn {
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid;
+            transition: all 0.2s;
+            background: rgba(255,255,255,0.04);
+        }
+        .map-btn-naver { border-color: rgba(3,199,90,0.5); color: #03c75a; }
+        .map-btn-google { border-color: rgba(66,133,244,0.5); color: #82b4ff; }
+        .map-btn:hover { background: rgba(255,255,255,0.08); }
+        
+        /* 세로로 깨지던 유튜브 썸네일을 16:9 가로 비율로 강제 고정 */
+        .video-thumb {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            display: block;
+            aspect-ratio: 16 / 9; /* 가로 세로 비율 16:9 고정 */
+        }
+        .video-thumb img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; /* 이미지가 찌그러지지 않고 16:9 비율을 꽉 채우도록 설정 */
+            display: block; 
+            filter: brightness(0.75); 
+            transition: filter 0.3s; 
+        }
+        .video-thumb:hover img { filter: brightness(0.9); }
+        .video-play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            gap: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+        .footer-links a {
+            display: block;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            transition: color 0.2s;
+        }
+        .footer-links a:last-child { border-bottom: none; }
+        .footer-links a:hover { color: var(--gold-light); }
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.25);
+            letter-spacing: 1px;
+        }
+
+        /* ── VIDEO MODAL ── */
+        .video-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-inner {
+            width: 90%;
+            max-width: 900px;
+            background: rgba(15,20,35,0.95);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 100px rgba(0,0,0,0.8);
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: -44px;
+            right: 0;
+            font-size: 36px;
+            color: rgba(255,255,255,0.7);
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: color 0.2s;
+        }
+        .modal-close:hover { color: white; }
+        .video-wrapper {
+            position: relative;
+            padding-top: 56.25%;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%; height: 100%;
+            border-radius: 24px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .history-item { grid-template-columns: 1fr; gap: 32px; }
+            .history-item:nth-child(even) .history-img { order: 0; }
+            .history-item:nth-child(even) .history-text { order: 0; }
+            .services-grid { grid-template-columns: 1fr; }
+            .offering-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .qr-band { flex-direction: column; gap: 40px; padding: 40px; margin: 0; }
+        }
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .nav-container { padding: 0 20px; }
+            .nav-menu { 
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: var(--nav-height);
+                left: 0; right: 0;
+                background: rgba(255,255,255,0.98); 
+                backdrop-filter: var(--blur-strong);
+                padding: 20px;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                gap: 4px;
+            }
+            .nav-menu.open { display: flex; }
+            .mobile-toggle { display: block; }
+            .section-pad { padding: 70px 0; }
+            .video-grid { grid-template-columns: 1fr 1fr; }
+            .offering-btns { flex-direction: column; }
+            
+            /* 모바일용 언어 메뉴 조절 */
+            .lang-dropdown { padding-bottom: 0; margin-bottom: 0; margin-top: 10px; }
+            .lang-content { 
+                position: relative; 
+                top: 0; 
+                transform: none; 
+                box-shadow: none; 
+                opacity: 1; 
+                visibility: visible; 
+                display: none; 
+            }
+            .lang-dropdown:hover .lang-content {
+                display: block; 
+            }
+        }
+        @media (max-width: 500px) {
+            .video-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Divider line */
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            margin: 24px 0;
+        }
+
+        /* Copy success flash */
+        @keyframes flashGold {
+            0% { background: rgba(197,160,40,0.4); }
+            100% { background: var(--glass-bg); }
+        }
+        .copy-flash { animation: flashGold 0.6s ease; }
+    </style>
+</head>
+<body>
+
+<div class="bg-canvas"></div>
+
+<nav class="main-nav" id="mainNav">
+    <div class="nav-container">
+        <a href="#" class="logo-wrapper">
+            <img src="assets/images/adventist-symbol--black.png" alt="SDA" class="logo-symbol">
+            <span class="logo-text">송도교회</span>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="메뉴">
+            <i data-lucide="menu" style="width:24px;height:24px;"></i>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#">처음으로</a></li>
+            <li><a href="#history">교회 발자취</a></li>
+            <li><a href="#services">예배안내</a></li>
+            <li><a href="#sermons">말씀/설교</a></li>
+            <li><a href="#news">교회소식</a></li>
+            <li><a href="#offering">온라인 헌금</a></li>
+            <li><a href="#contact">오시는 길</a></li>
+            <li class="lang-dropdown">
+                <button class="lang-btn">
+                    <i data-lucide="globe" style="width:14px;height:14px;"></i> KOR
+                </button>
+                <div class="lang-content">
+                    <a href="index_en.html">ENG</a>
+                    <a href="index_zh.html">中文</a>
+                    <a href="index_ru.html">РУС</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-eyebrow">제칠일안식일예수재림교</div>
+        <h1><span>송도</span>교회</h1>
+        <p class="hero-subtitle">새로운 신자가 적응할 수 있는 교회<br>잃은 양들이 돌아올 수 있는 교회</p>
+        <div class="hero-buttons">
+            <a href="#sermons" class="btn btn-gold">
+                <i data-lucide="play-circle" style="width:18px;height:18px;"></i> 최신 설교 듣기
+            </a>
+            <a href="#history" class="btn btn-glass">교회 발자취</a>
+        </div>
+    </div>
+    <div class="scroll-hint">
+        <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
+    </div>
+</section>
+
+<section class="section-pad" id="history">
+    <div class="container">
+        <div class="text-center reveal" style="margin-bottom: 80px;">
+            <p class="section-label">OUR STORY</p>
+            <h2 class="section-title">송도교회 발자취</h2>
+            <p class="section-sub">하나님의 인도하심 속에 이뤄낸 헌신과 기적의 순간들입니다</p>
+        </div>
+
+        <div class="history-grid">
+            <div class="history-item reveal">
+                <div class="history-img">
+                    <img src="assets/images/001.JPG" alt="2000만원의 기적">
+                </div>
+                <div class="history-text">
+                    <p class="history-year">2013 · FOUNDING</p>
+                    <h3>2000만원으로<br>개척교회 도전</h3>
+                    <div class="divider"></div>
+                    <p>2013년 5월에 송도신도시에 보증금 1000만원과 직접 청년들과 목회자들의 헌신으로 약 800만원의 셀프 인테리어로 오른쪽 사진의 교회가 완성되었습니다.</p>
+                </div>
+            </div>
+
+            <div class="history-item reveal">
+                <div class="history-img">
+                    <img src="assets/images/bt.JPG" alt="첫 침례식">
+                </div>
+                <div class="history-text">
+                    <p class="history-year">2013 · MIRACLE</p>
+                    <h3>기적의 첫<br>16명의 침례식</h3>
+                    <div class="divider"></div>
+                    <p>2013년 10월 성경공부와 전도회를 통하여 16명의 소중한 영혼들이 주님의 자녀로 거듭난 첫번째 개척교회가 되었습니다.</p>
+                </div>
+            </div>
+
+            <div class="history-item reveal">
+                <div class="history-img">
+                    <img src="assets/images/002.PNG" alt="인터넷 선교">
+                </div>
+                <div class="history-text">
+                    <p class="history-year">2020 · DIGITAL MISSION</p>
+                    <h3>인터넷 선교 교회로<br>새롭게 거듭남</h3>
+                    <div class="divider"></div>
+                    <p>코로나의 위기속에서 해외선교인터뷰와 실시간 방송예배와 다양한 유튜브 프로그램으로 인터넷 방송 교회로 전 세계에 복음을 전파하고 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container" style="position:relative;z-index:1;margin-bottom:80px;">
+    <div class="qr-band reveal">
+        <div style="flex:1;">
+            <h3>SONGDO YouTube</h3>
+            <p>실시간 예배 방송과 지난 설교 말씀을 유튜브 채널에서 확인하세요.<br>스마트폰으로 우측의 QR코드를 스캔하시면 바로 연결됩니다.</p>
+            <a href="https://www.youtube.com/@bibletime8232" target="_blank" class="btn btn-gold">
+                채널 바로가기 <i data-lucide="youtube" style="width:18px;height:18px;"></i>
+            </a>
+        </div>
+        <div>
+            <div class="qr-box">
+                <img src="assets/images/logo_qr.png" alt="YouTube QR">
+            </div>
+            <p class="qr-label">SCAN TO CONNECT</p>
+        </div>
+    </div>
+</div>
+
+<section class="section-pad" id="sermons">
+    <div class="container">
+        <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:0;">
+            <div>
+                <p class="section-label">MEDIA</p>
+                <h2 class="section-title" style="margin-bottom:0;">말씀 / 설교 유튜브</h2>
+            </div>
+            <div class="tabs">
+                <button class="tab-btn active" data-filter="all">전체</button>
+                <button class="tab-btn" data-filter="worship">안식일설교</button>
+                <button class="tab-btn" data-filter="bible-time">교과방송</button>
+                <button class="tab-btn" data-filter="friday">금요예배</button>
+                <button class="tab-btn" data-filter="tuesday">화요예배</button>
+            </div>
+        </div>
+
+        <div class="video-grid" id="video-grid">
+            <div class="glass-card video-card reveal" data-category="bible-time">
+                <div class="card-thumb" style="background-image:url('https://img.youtube.com/vi/7jEgG8cXNEQ/mqdefault.jpg');" onclick="openVideoModal('https://www.youtube.com/embed/7jEgG8cXNEQ')">
+                    <i data-lucide="play-circle" style="width:56px;height:56px;"></i>
+                </div>
+                <div class="card-body">
+                    <p class="card-category">교과방송</p>
+                    <p class="card-title">교과방송 - 온라인 성경 공부</p>
+                </div>
+            </div>
+            <div class="glass-card video-card reveal" data-category="worship">
+                <div class="card-thumb" style="background-image:url('https://img.youtube.com/vi/Wh15ZEAGQwM/mqdefault.jpg');" onclick="openVideoModal('https://www.youtube.com/embed/Wh15ZEAGQwM')">
+                    <i data-lucide="play-circle" style="width:56px;height:56px;"></i>
+                </div>
+                <div class="card-body">
+                    <p class="card-category">안식일설교</p>
+                    <p class="card-title">안식일설교 - 주말 영적 양식</p>
+                </div>
+            </div>
+            <div class="glass-card video-card reveal" data-category="friday">
+                <div class="card-thumb" style="background-image:url('https://img.youtube.com/vi/sic-jqaZzNA/mqdefault.jpg');" onclick="openVideoModal('https://www.youtube.com/embed/sic-jqaZzNA')">
+                    <i data-lucide="play-circle" style="width:56px;height:56px;"></i>
+                </div>
+                <div class="card-body">
+                    <p class="card-category">금요예배</p>
+                    <p class="card-title">금요예배 - 한 주를 마무리하는 기도</p>
+                </div>
+            </div>
+            <div class="glass-card video-card reveal" data-category="tuesday">
+                <div class="card-thumb" style="background-image:url('https://img.youtube.com/vi/te9X3SRsRQ4/mqdefault.jpg');" onclick="openVideoModal('https://www.youtube.com/embed/te9X3SRsRQ4')">
+                    <i data-lucide="play-circle" style="width:56px;height:56px;"></i>
+                </div>
+                <div class="card-body">
+                    <p class="card-category">화요예배</p>
+                    <p class="card-title">화요예배 - 주중 말씀 탐구</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad" id="news" style="background: rgba(255,255,255,0.02);">
+    <div class="container">
+        <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;">
+            <div>
+                <p class="section-label">ANNOUNCEMENTS</p>
+                <h2 class="section-title" style="margin-bottom:0;">교회 소식</h2>
+            </div>
+            <a href="board.html" style="color:var(--gold);font-size:0.9rem;font-weight:600;text-decoration:none;opacity:0.8;">전체보기 →</a>
+        </div>
+        <div class="glass-card reveal" style="overflow:hidden;">
+            <div class="news-list">
+                <div class="news-item">
+                    <div class="news-left">
+                        <span class="news-tag tag-notice">공지</span>
+                        <a href="board.html" class="news-title">2026년 1분기 재정 보고</a>
+                    </div>
+                    <span class="news-date">2026.04.19</span>
+                </div>
+                <div class="news-item">
+                    <div class="news-left">
+                        <span class="news-tag tag-event">행사</span>
+                        <a href="board.html" class="news-title">2026년 상반기 전도회 일정 안내</a>
+                    </div>
+                    <span class="news-date">2026.04.15</span>
+                </div>
+                <div class="news-item">
+                    <div class="news-left">
+                        <span class="news-tag tag-notice">공지</span>
+                        <a href="board.html" class="news-title">2026년도 교회 임원 선거 결과 공고</a>
+                    </div>
+                    <span class="news-date">2026.04.12</span>
+                </div>
+                <div class="news-item">
+                    <div class="news-left">
+                        <span class="news-tag tag-event">행사</span>
+                        <a href="board.html" class="news-title">송년 음악회 안내 및 초대</a>
+                    </div>
+                    <span class="news-date">2026.04.05</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad" id="services">
+    <div class="container">
+        <div class="text-center reveal" style="margin-bottom: 60px;">
+            <p class="section-label">WORSHIP</p>
+            <h2 class="section-title">정규 예배 안내</h2>
+        </div>
+        <div class="services-grid reveal">
+            <div class="glass-card service-card">
+                <div class="service-icon">
+                    <i data-lucide="tv" style="width:22px;height:22px;"></i>
+                </div>
+                <p class="service-day">화요예배</p>
+                <p class="service-time">화요일 유튜브 예배</p>
+            </div>
+            <div class="glass-card service-card featured">
+                <div class="service-icon" style="background:rgba(197,160,40,0.25);border-color:rgba(197,160,40,0.5);">
+                    <i data-lucide="star" style="width:22px;height:22px;"></i>
+                </div>
+                <p class="service-day">안식일 예배</p>
+                <p class="service-time">토요일 오전 11:00</p>
+            </div>
+            <div class="glass-card service-card">
+                <div class="service-icon">
+                    <i data-lucide="moon" style="width:22px;height:22px;"></i>
+                </div>
+                <p class="service-day">금요예배</p>
+                <p class="service-time">금요일 오후 7:15</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad" id="offering" style="background: rgba(255,255,255,0.02);">
+    <div class="container">
+        <div class="text-center reveal" style="margin-bottom: 60px;">
+            <p class="section-label">OFFERING</p>
+            <h2 class="section-title">온라인 헌금 안내</h2>
+            <p class="section-sub">하나님께서 즐겨 내는 자를 사랑하시느니라 (고후 9:7)</p>
+        </div>
+        <div class="offering-grid reveal">
+            <div class="glass-card offering-main">
+                <img src="assets/images/Shinhan_Bank_logo.png" alt="Shinhan Bank" class="bank-logo">
+                <p class="account-num" id="accountNum">100-030-416442</p>
+                <p class="account-name">제칠일안식일예수재림교 송도교회</p>
+                <div class="offering-btns">
+                    <button class="btn btn-gold" onclick="copyAccount()" id="copyBtn">
+                        계좌번호 복사 <i data-lucide="copy" style="width:16px;height:16px;"></i>
+                    </button>
+                    <button class="btn btn-glass" onclick="window.location.href='supertoss://send?bank=신한&accountNo=100030416442'" style="border-color:rgba(0,100,255,0.4);color:#82b4ff;">
+                        토스 송금 <i data-lucide="external-link" style="width:16px;height:16px;"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="glass-card memo-card">
+                <h4>입금자 성명 기입 안내</h4>
+                <ul class="memo-list">
+                    <li><span>십일조</span><strong>홍길동 십일</strong></li>
+                    <li><span>월정헌금</span><strong>홍길동 월정</strong></li>
+                    <li><span>감사헌금</span><strong>홍길동 감사</strong></li>
+                    <li><span>선교헌금</span><strong>홍길동 선교</strong></li>
+                    <li><span>도르가</span><strong>홍길동 도르가</strong></li>
+                    <li><span>방송선교</span><strong>홍길동 방송</strong></li>
+                </ul>
+                <p class="memo-note">* 성함 뒤에 헌금 종류를 꼭 적어주세요.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="contact">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">
+                    <img src="https://cdn.adventist.org/adventist-logo/2/en/adventist-en--black.png" alt="SDA Logo">
+                </div>
+                <p class="footer-church-name">SONGDO CHURCH</p>
+                <p class="footer-desc">제칠일안식일예수재림교 송도교회<br>하나님의 사랑이 송도국제도시에 가득하길 소망합니다.</p>
+            </div>
+            <div>
+                <p class="footer-section-title">LOCATION</p>
+                <p class="footer-info">인천광역시 연수구 송도동 30-3<br>센트로드 상가동 D313호</p>
+                <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:16px;">
+                    🚇 국제업무지구역 1번출구  ·  🅿 지하주차장 완비
+                </p>
+                <div class="map-btns">
+                    <a href="https://map.naver.com/p/search/송도교회/place/36802609" target="_blank" class="map-btn map-btn-naver">네이버 지도</a>
+                    <a href="https://www.google.com/maps?ll=37.39823,126.630764&z=16" target="_blank" class="map-btn map-btn-google">구글 지도</a>
+                </div>
+                
+                <a href="https://www.youtube.com/watch?v=FKyg1mPoi9w" target="_blank" class="video-thumb">
+                    <img src="https://img.youtube.com/vi/FKyg1mPoi9w/maxresdefault.jpg" alt="오시는 길 영상" onerror="this.src='https://img.youtube.com/vi/FKyg1mPoi9w/hqdefault.jpg';">
+                    <div class="video-play-overlay">
+                        <i data-lucide="play-circle" style="width:32px;height:32px;"></i>
+                        <span>교회 오시는 길 영상</span>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <p class="footer-section-title">CONNECT</p>
+                <div class="footer-links">
+                    <a href="https://www.youtube.com/@bibletime8232" target="_blank">
+                        <i data-lucide="youtube" style="width:14px;height:14px;display:inline;margin-right:8px;"></i>YouTube Channel
+                    </a>
+                    <a href="#">
+                        <i data-lucide="mail" style="width:14px;height:14px;display:inline;margin-right:8px;"></i>Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+        <p class="footer-bottom">© 2026 SONGDO SDA CHURCH. ALL RIGHTS RESERVED.</p>
+    </div>
+</footer>
+
+<div id="videoModal" class="video-modal">
+    <div class="modal-inner">
+        <button class="modal-close" onclick="closeVideoModal()">×</button>
+        <div class="video-wrapper">
+            <iframe id="videoFrame" src="" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+<script>
+lucide.createIcons();
+
+// Nav scroll effect
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Mobile toggle
+document.getElementById('mobileToggle').addEventListener('click', () => {
+    document.getElementById('navMenu').classList.toggle('open');
+});
+
+// Reveal on scroll
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+            setTimeout(() => e.target.classList.add('active'), i * 80);
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+revealEls.forEach(el => observer.observe(el));
+
+// Video modal
+const modal = document.getElementById('videoModal');
+const frame = document.getElementById('videoFrame');
+function openVideoModal(url) {
+    frame.src = url + '?autoplay=1';
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+function closeVideoModal() {
+    modal.style.display = 'none';
+    frame.src = '';
+    document.body.style.overflow = '';
+}
+window.addEventListener('click', e => { if (e.target === modal) closeVideoModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideoModal(); });
+
+// Tab filter
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.video-card').forEach(card => {
+            const show = filter === 'all' || card.dataset.category === filter;
+            card.style.display = show ? '' : 'none';
+        });
+    });
+});
+
+// Copy account
+function copyAccount() {
+    navigator.clipboard.writeText('100-030-416442').then(() => {
+        const btn = document.getElementById('copyBtn');
+        const orig = btn.innerHTML;
+        btn.innerHTML = '복사됨! ✓';
+        btn.classList.add('copy-flash');
+        setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('copy-flash'); lucide.createIcons(); }, 2000);
+    });
+}
+</script>
+</body>
+</html>
